@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
@@ -25,5 +26,8 @@ class RoleSeeder extends Seeder
             'name' => 'user',
             'guard_name' => 'web'
         ]);
+
+        $user = User::find(1);
+        $user->assignRole('admin');
     }
 }
