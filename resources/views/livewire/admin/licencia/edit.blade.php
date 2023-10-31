@@ -66,20 +66,7 @@
                 <form wire:submit.prevent='update' class="space-y-4" id="UpdateForm-{{ $this->formId }}">
                     @csrf
                     @method('POST')
-                    <div class="mb-2 flex">
-                        <div class="flex w-full items-center">
-                            <input wire:model="licencia.is_active" class="ml-2" type="checkbox" />
-
-                        </div>
-                    </div>
-                    <div class="mb-2 flex">
-                        <input type="text" class="w-full my-4 mx-2" wire:model='licencia.concept'
-                            placeholder='Descripción de la licencia' />
-                    </div>
-
-                    <div class="mb-2 flex flex-row">
-                        <input wire:model="licencia.days" class="ml-2" type="number" />
-                    </div>
+                    @include('livewire.admin.licencia._form')
                 </form>
             </div>
             <footer

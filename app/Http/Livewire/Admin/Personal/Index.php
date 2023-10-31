@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Personal;
 
 use App\Models\Personal;
+use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -23,7 +24,7 @@ class Index extends Component
 
     public function render()
     {
-        $empleados = Personal::paginate($this->perPage);
+        $empleados = User::paginate($this->perPage);
         return view('livewire.admin.personal.index', [
             'empleados' => $empleados
         ])->layout('layouts.admin');

@@ -14,14 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-        $user = User::find(2);
-        //dd($user);
-        //$user->assignRole('super_admin');
-        //$user->givePermissionTo('list permission');
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $this->call([
+            RoleSeeder::class,
+            PermissionSeeder::class,
+            CitySeeder::class,
+            PositionSeeder::class
+        ]);
     }
 }

@@ -49,14 +49,14 @@
                             placeholder="">
                     </label>
                     <label class="block text-sm">
-                        <span class="text-gray-700 dark:text-gray-400">Permisos @json($permisos)</span>
+                        <span class="text-gray-700 dark:text-gray-400 font-bold">Listo de Permisos @json($permisos)</span>
                         @foreach ($permissions as $permission)
                             <label class="flex items-center dark:text-gray-400">
                                 <input type="checkbox" wire:model="permisos"
-                                value="{{ $permission->name }}"
+                                    value="{{ $permission->id }}"
                                     class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
                                 <span class="ml-2">
-                                    {{ $permission->name }}
+                                    {{ $permission->description }}
                                 </span>
                             </label>
                         @endforeach

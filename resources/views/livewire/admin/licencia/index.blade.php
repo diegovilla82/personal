@@ -12,7 +12,7 @@
 
     <!-- New Table -->
 
-    <div class="w-full overflow-hidden rounded-lg shadow-xs">
+    <div class="w-full overflow-hidden rounded-lg shadow-xs p-4 bg-white">
         <div class="w-full overflow-x-auto">
             <table class="w-full whitespace-no-wrap">
                 <thead>
@@ -66,7 +66,7 @@
 
                     @empty
                         <tr class="text-gray-700 dark:text-gray-400">
-                            <td class="px-4 py-3 text-center text-sm" colspan="4">
+                            <td class="px-4 py-3 text-center text-sm" colspan="5">
                                 no hay registros para mostrar.
                             </td>
                         </tr>

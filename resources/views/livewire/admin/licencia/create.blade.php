@@ -66,20 +66,7 @@
           <form wire:submit.prevent='store' class="space-y-4" id="SubmitForm">
             @csrf
             @method('POST')
-            <div class="mb-2 flex">
-                <div class="flex w-full items-center">
-                    <input wire:model="licencia.is_active" class="ml-2" type="checkbox" />
-
-                </div>
-            </div>
-            <div class="mb-2 flex">
-                <input type="text" class="w-full my-4 mx-2" wire:model='licencia.concept'
-                    placeholder='Descripción de la licencia' />
-            </div>
-
-            <div class="mb-2 flex flex-row">
-                <input wire:model="licencia.days" class="ml-2" type="number" />
-            </div>
+            @include('livewire.admin.licencia._form')
         </form>
         </div>
         <footer
@@ -94,7 +81,7 @@
           <button
             type='submit'
             form='SubmitForm'
-            @click="closeModal"
+            {{-- @click="closeModal" --}}
             class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             >
             Crear

@@ -50,13 +50,18 @@ class LoginRequest extends FormRequest
         //dd($credentials);
         //dd(Auth::attempt($credentials));
         if (! Auth::attempt($credentials, $this->filled('remember'))) {
-            //dd('llega');
+
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
                 'email' => trans('auth.failed'),
             ]);
         }
+        if(Auth::user()->getRoleNames()->count() == 0)
+        {
+            Auth::user()->assignRole('user');
+        }
+
 
         RateLimiter::clear($this->throttleKey());
     }

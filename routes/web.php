@@ -34,16 +34,20 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware('auth')->prefix('admin')->group(function () {
+Route::middleware('auth')
+    ->prefix('admin')->group(function () {
     Route::get('/licencias', IndexLicencia::class)->name('licencia.list');
     Route::get('/empleados', IndexPersonal::class)->name('personal.list');
     Route::get('/roles', IndexRole::class)->name('role.list');
     Route::get('/permission', IndexPermission::class)->name('permission.list');
 });
-Route::middleware('auth')->prefix('usuario')->group(function () {
+
+Route::middleware('auth')
+    ->prefix('usuario')->group(function () {
     Route::get('/licencias-solicitadas', IndexLicenciaUsuario::class)->name('licencia.solicitadas');
 });
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')
+    ->group(function () {
     Route::get('/cargar-licencia', CargarLicencia::class)->name('cargar.licencia');
 });
 

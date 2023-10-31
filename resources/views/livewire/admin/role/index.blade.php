@@ -20,6 +20,7 @@
                         class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                         <th class="px-4 py-3 text-center">Id</th>
                         <th class="px-4 py-3 text-center">Role</th>
+                        <th class="px-4 py-3 text-center">Permisos</th>
                         <th class="px-4 py-3 text-center">Acciones</th>
                     </tr>
                 </thead>
@@ -32,7 +33,11 @@
                             <td class="px-4 py-3 text-center">
                                 {{ $role->name }}
                             </td>
-
+                            <td class="px-4 py-3 text-center">
+                                @foreach ($role->permissions as $p)
+                                    {{ $p->name.', ' }}
+                                @endforeach
+                            </td>
                             <td class="flex px-4 py-3 justify-center">
                                  @livewire('admin.role.edit', [$role], key('edit-role' . now() . $role->id))
 

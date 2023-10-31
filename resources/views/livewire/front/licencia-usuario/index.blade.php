@@ -12,7 +12,7 @@
 
     <!-- New Table -->
 
-    <div class="w-full overflow-hidden rounded-lg shadow-xs">
+    <div class="w-full overflow-hidden rounded-lg shadow-xs bg-white p-4">
         <div class="w-full overflow-x-auto">
             <table class="w-full whitespace-no-wrap">
                 <thead>
@@ -63,7 +63,7 @@
                                     @livewire('front.licencia-usuario.edit', [ 'licencia'=>$item], key('edit-licencia-user-'.now().$item->id) )
                                     @livewire('front.licencia-usuario.delete', ['id'=>$item->id], key('delete-licencia' . now() . $item->id))
                                     @else
-                                    
+
                                 @endif
                                 {{-- @livewire('admin.licencia.edit', [$item], key('edit-licencia' . now() . $licencia->id))
 
@@ -73,7 +73,7 @@
 
                     @empty
                         <tr class="text-gray-700 dark:text-gray-400">
-                            <td class="px-4 py-3 text-center text-sm" colspan="5">
+                            <td class="px-4 py-3 text-center text-sm" colspan="6">
                                 no hay registros para mostrar.
                             </td>
                         </tr>

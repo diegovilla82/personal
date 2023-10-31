@@ -13,7 +13,7 @@
     <!-- New Table -->
 
     <div class="w-full overflow-hidden rounded-lg shadow-xs">
-        <div class="w-full overflow-x-auto">
+        <div class="w-full overflow-x-auto bg-white p-3">
             <table class="w-full whitespace-no-wrap">
                 <thead>
                     <tr
@@ -21,33 +21,35 @@
                         <th class="px-4 py-3 text-center">Id</th>
                         <th class="px-4 py-3 text-center">Ingreso</th>
                         <th class="px-4 py-3 text-center">DNI</th>
-                        <th class="px-4 py-3 text-center">Nombre</th>
-                        <th class="px-4 py-3 text-center">Apellido</th>
+                        <th class="px-4 py-3 text-center">Nombre y Apellido</th>
+                        <th class="px-4 py-3 text-center">Rol</th>
                         <th class="px-4 py-3 text-center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                     @forelse ($empleados as $empleado)
-                        <tr class="text-gray-700 dark:text-gray-400" wire:key="{{ $empleado->id }}">
-                            <td class="px-4 py-3 text-center">
+                        <tr class="text-gray-700 dark:text-gray-400 hover:bg-gray-200" wire:key="{{ $empleado->id }}">
+                            <td class="px-4 py-2 text-center">
                                 {{ $empleado->id }}
                             </td>
-                            <td class="px-4 py-3 text-center">
+                            <td class="px-4 py-2 text-center">
                                 {{ $empleado->year_of_income }}
                             </td>
-                            <td class="px-4 py-3 text-center">
+                            <td class="px-4 py-2 text-center">
                                 {{ $empleado->dni }}
                             </td>
-                            <td class="px-4 py-3">
-                                {{ $empleado->name }}
+                            <td class="px-4 py-2">
+                                {{ $empleado->name .' '.$empleado->last_name }}
                             </td>
-                            <td class="px-4 py-3">
-                                {{ $empleado->last_name }}
+                            <td class="px-4 py-2">
+                                @foreach ($empleado->roles as $role)
+                                    {{ $role->name }}
+                                @endforeach
                             </td>
-                            <td class="flex px-4 py-3 justify-center">
-                                @livewire('admin.personal.edit', [$empleado], key('edit-empleado' . now() . $empleado->id))
+                            <td class="flex px-4 py-2 justify-center">
+                               @livewire('admin.personal.edit', [$empleado], key('edit-empleado' . now() . $empleado->id))
 
-                                @livewire('admin.personal.delete', [$empleado], key('delete-empleado' . now() . $empleado->id))
+                             {{--     @livewire('admin.personal.delete', [$empleado], key('delete-empleado' . now() . $empleado->id)) --}}
                             </td>
                         </tr>
 

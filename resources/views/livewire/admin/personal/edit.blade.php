@@ -1,4 +1,4 @@
-<div class="p-4" x-data="{'isModalOpenEdit': false}" x-on:keydown.escape="isModalOpen=false">
+<div x-data="{'isModalOpenEdit': false}" x-on:keydown.escape="isModalOpen=false">
     @php
         $disabled = $errors->any() || empty($this->name) ? true : false;
     @endphp
@@ -36,7 +36,7 @@
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0  transform translate-y-1/2"
         {{-- x-on:click.away="isModalOpenEdit = false" --}}
-        class="w-full px-6 py-4 overflow-hidden bg-white rounded-t-lg dark:bg-gray-800 sm:rounded-lg sm:m-4 sm:max-w-xl"
+        class="w-full px-6 py-4 overflow-hidden bg-white rounded-t-lg dark:bg-gray-800 sm:rounded-lg sm:m-4 sm:max-w-4xl"
         role="dialog"
         id="modalEdit"
       >

@@ -11,17 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('licencia_users', function (Blueprint $table) {
+        Schema::create('license_vacations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->index();
-            $table->foreignId('licencia_id')->nullable()->index();
-            $table->date('date_license')->nullable();
-            $table->integer('days');
-            $table->integer('year');
-            $table->boolean('status')->default(false);
+            $table->foreignId('user_id');
+            $table->foreignId('licencia_id');
             $table->date('from_date')->nullable();
             $table->date('to_date')->nullable();
-            $table->text('observation')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('licencia_users');
+        Schema::dropIfExists('license_vacations');
     }
 };

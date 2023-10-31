@@ -20,7 +20,9 @@ class Create extends Component
     public function mount(Licencia $licencia)
     {
         $this->licencia = $licencia;
+        $this->licencia->days = "1";
         $this->licencia->is_active = true;
+        //dd($this->licencia);
     }
 
     public function render()
@@ -34,12 +36,6 @@ class Create extends Component
         $this->validate();
 
         $this->licencia->save();
-
-        // $this->dispatchBrowserEvent('created', [
-        //     'title' => 'LICENCIA CREADA!',
-        //     'icon' => 'success',
-        //     'iconColor' => 'green',
-        // ]);
 
         $this->emit('saved');
 

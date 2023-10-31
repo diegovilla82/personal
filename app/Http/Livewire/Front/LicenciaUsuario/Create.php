@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Front\LicenciaUsuario;
 use App\Models\Licencia;
 use App\Models\LicenciaUser;
 use App\Models\Personal;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -25,7 +26,7 @@ class Create extends Component
         $this->licencia = $licencia;
         $this->licencia->days = 1;
         $this->licencias = Licencia::all();
-        $this->empleado = Personal::where('username', Auth::user()->username)->first();
+        $this->empleado =  Auth::user();
     }
 
     public function render()
