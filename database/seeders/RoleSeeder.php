@@ -16,7 +16,7 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         Role::create([
-            'name' => 'super admin',
+            'name' => 'super-admin',
             'guard_name' => 'web'
         ]);
         Role::create([
@@ -35,6 +35,6 @@ class RoleSeeder extends Seeder
             'email' => 'dvillarroel82@gmail.com',
             'password' => Hash::make('DieVilla'),
         ]);
-        $user->assignRole('super admin');
+        $user->assignRole('super-admin');
     }
 }
