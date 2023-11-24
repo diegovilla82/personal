@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Licencia;
 
 use App\Models\Licencia;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -20,6 +21,7 @@ class Index extends Component
 
     public function render()
     {
+        //dd(Auth::user()->employee);d
         $licencias = Licencia::paginate(5);
         return view('livewire.admin.licencia.index',[
             'licencias' => $licencias

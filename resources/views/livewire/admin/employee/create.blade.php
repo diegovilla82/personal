@@ -20,7 +20,7 @@
             x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
             x-transition:leave-end="opacity-0  transform translate-y-1/2" @click.away="open=true"
             @keydown.escape="open=true"
-            class="w-full max-h-screen px-6 py-4 overflow-hidden bg-white rounded-t-lg dark:bg-gray-800 sm:rounded-lg sm:m-4 sm:max-w-4xl"
+            class="w-full max-h-screen px-6 py-4 overflow-auto bg-white rounded-t-lg dark:bg-gray-800 sm:rounded-lg sm:m-4 sm:max-w-4xl"
             role="dialog" id="modal">
             <!-- Remove header if you don't want a close icon. Use modal body to place modal tile. -->
             <header class="flex justify-between">
@@ -42,7 +42,7 @@
                     @csrf
                     @method('POST')
                     <!-- Modal title -->
-                    @include('livewire.admin.personal._form')
+                    @include('livewire.admin.employee._form')
                     <!-- Modal title -->
                 </form>
             </div>

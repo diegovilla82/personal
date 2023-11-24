@@ -5,7 +5,7 @@
                 {{ __('Personal de viviendas') }}
 
             </h2>
-            @livewire('admin.personal.create')
+            @livewire('admin.employee.create')
         </div>
 
     </x-slot>
@@ -22,7 +22,8 @@
                         <th class="px-4 py-3 text-center">Ingreso</th>
                         <th class="px-4 py-3 text-center">DNI</th>
                         <th class="px-4 py-3 text-center">Nombre y Apellido</th>
-                        <th class="px-4 py-3 text-center">Rol</th>
+                        <th class="px-4 py-3 text-center">E-mail</th>
+                        <th class="px-4 py-3 text-center">Teléfono</th>
                         <th class="px-4 py-3 text-center">Acciones</th>
                     </tr>
                 </thead>
@@ -39,15 +40,21 @@
                                 {{ $empleado->dni }}
                             </td>
                             <td class="px-4 py-2">
-                                {{ $empleado->name .' '.$empleado->last_name }}
+                                {{ $empleado->first_name .' '.$empleado->last_name }}
                             </td>
                             <td class="px-4 py-2">
+                                {{ $empleado->email }}
+                            </td>
+                            <td class="px-4 py-2 text-center">
+                                {{ $empleado->telephont }}
+                            </td>
+                            {{-- <td class="px-4 py-2">
                                 @foreach ($empleado->roles as $role)
                                     {{ $role->name }}
                                 @endforeach
-                            </td>
+                            </td> --}}
                             <td class="flex px-4 py-2 justify-center">
-                               @livewire('admin.personal.edit', [$empleado], key('edit-empleado' . now() . $empleado->id))
+                               @livewire('admin.employee.edit', [$empleado], key('edit-empleado' . now() . $empleado->id))
 
                              {{--     @livewire('admin.personal.delete', [$empleado], key('delete-empleado' . now() . $empleado->id)) --}}
                             </td>

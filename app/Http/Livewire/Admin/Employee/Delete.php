@@ -1,29 +1,29 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Personal;
+namespace App\Http\Livewire\Admin\Employee;
 
-use App\Models\Personal;
+use App\Models\Employee;
 use Livewire\Component;
 
 class Delete extends Component
 {
 
-    public Personal $empleado;
+    public Employee $empleado;
 
-    public function mount(Personal $empleado)
+    public function mount(Employee $empleado)
     {
         $this->empleado = $empleado;
     }
 
     public function render()
     {
-        return view('livewire.admin.personal.delete');
+        return view('livewire.admin.employee.delete');
     }
 
     public function delete($id)
     {
         //dd($id);
-        $empleado = Personal::find($id);
+        $empleado = Employee::find($id);
 
         $empleado->delete();
 

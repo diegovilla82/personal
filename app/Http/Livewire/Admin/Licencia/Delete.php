@@ -28,6 +28,12 @@ class Delete extends Component
 
         $licencia->delete();
 
+        $this->dispatchBrowserEvent('message', [
+            'title' => 'LICENCIA ELIMINADA!',
+            'icon' => 'success',
+            'iconColor' => 'green',
+        ]);
+
         $this->emit('saved');
     }
 }

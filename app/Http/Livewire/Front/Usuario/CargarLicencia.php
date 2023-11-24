@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Front\Usuario;
 
+use App\Models\Employee;
 use App\Models\Licencia;
 use App\Models\Personal;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,7 @@ class CargarLicencia extends Component
     public function mount()
     {
         $this->licencias = Licencia::all();
-        $this->empleado = Personal::where('username', Auth::user()->username)->first();
+        $this->empleado = Employee::where('dni', Auth::user()->dni)->first();
     }
     public function render()
     {

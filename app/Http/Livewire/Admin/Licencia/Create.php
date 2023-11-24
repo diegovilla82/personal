@@ -37,6 +37,12 @@ class Create extends Component
 
         $this->licencia->save();
 
+        $this->dispatchBrowserEvent('message', [
+            'title' => 'LICENCIA CREADO!',
+            'icon' => 'success',
+            'iconColor' => 'green',
+        ]);
+
         $this->emit('saved');
 
         $this->mount(new Licencia);

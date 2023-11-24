@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Models\Employee;
+use DragonCode\Contracts\Cashier\Http\Request;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -30,6 +32,7 @@ class LoginRequest extends FormRequest
             //'email' => ['required', 'string', 'email'],
             'username' => ['required', 'string'],
             'password' => ['required', 'string'],
+            'dni' => ['required', 'string'],
         ];
     }
 
@@ -42,26 +45,23 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
+        //dd($this->dni);
+
         $credentials = [
             'samaccountname' => $this->username,
             'password' => $this->password,
         ];
 
-        //dd($credentials);
-        //dd(Auth::attempt($credentials));
-        if (! Auth::attempt($credentials, $this->filled('remember'))) {
+        if (!Auth::attempt($credentials, $this->filled('remember'))) {
 
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                'username' => trans('auth.failed'),
             ]);
         }
-        if(Auth::user()->getRoleNames()->count() == 0)
-        {
-            Auth::user()->assignRole('user');
-        }
 
+       
 
         RateLimiter::clear($this->throttleKey());
     }
@@ -73,7 +73,7 @@ class LoginRequest extends FormRequest
      */
     public function ensureIsNotRateLimited(): void
     {
-        if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
+        if (!RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
             return;
         }
 
@@ -94,6 +94,6 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->input('email')).'|'.$this->ip());
+        return Str::transliterate(Str::lower($this->input('email')) . '|' . $this->ip());
     }
 }

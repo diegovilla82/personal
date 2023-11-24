@@ -30,8 +30,7 @@ class User extends Authenticatable implements LdapAuthenticatable
         'name',
         'email',
         'password',
-        'city_id',
-        'name',
+        'dni'
     ];
 
     /**
@@ -59,5 +58,8 @@ class User extends Authenticatable implements LdapAuthenticatable
         return $this->hasMany(LicenciaUser::class);
     }
 
-
+    public function employee()
+    {
+        return $this->hasOne(Employee::class, 'dni', 'dni');
+    }
 }

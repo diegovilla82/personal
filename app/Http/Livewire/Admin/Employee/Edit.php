@@ -1,47 +1,54 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Personal;
+namespace App\Http\Livewire\Admin\Employee;
 
 use App\Models\City;
-use App\Models\Personal;
 use App\Models\Position;
-use App\Models\User;
+use App\Models\Employee;
 use Livewire\Component;
 
 class Edit extends Component
 {
     public $formId;
 
-    public User $empleado;
+    public Employee $empleado;
     public $cities, $positions;
 
     protected $rules = [
-        'empleado.username' => 'required',
+        //'empleado.username' => 'required',
         'empleado.year_of_income' => 'nullable',
         'empleado.vacation_days' => 'nullable',
-
-        'empleado.name' => 'required',
+        'empleado.state_civil' => 'nullable',
+        'empleado.first_name' => 'required',
         'empleado.last_name' => 'required',
         'empleado.dni' => 'required',
+        'empleado.birthdate' => 'nullable',
+        'empleado.age' => 'nullable',
+        'empleado.telephont' => 'nullable',
+        'empleado.email' => 'nullable',
 
         'empleado.city_id' => 'required',
         'empleado.address' => 'nullable',
         'empleado.neighborhood' => 'nullable',
-
         'empleado.position_id' => 'required',
-        'empleado.apartado' => 'nullable',
-        'empleado.ceic' => 'nullable',
+        'empleado.situation' => 'nullable',
 
         'empleado.anti_date' => 'nullable',
-        
-        'empleado.system_date' => 'nullable',
 
         'empleado.ley_6039_date' => 'nullable',
-
         'empleado.anses_date' => 'nullable',
+
+        'empleado.system_date' => 'nullable',
+
+        'empleado.ley_6039_year' => 'nullable',
+        'empleado.ley_6039_month' => 'nullable',
+        'empleado.ley_6039_day' => 'nullable',
+        'empleado.antiquity' => 'nullable',
+        'empleado.apartado' => 'nullable',
+        'empleado.ceic' => 'nullable',
     ];
 
-    public function mount(User $empleado)
+    public function mount(Employee $empleado)
     {
         $this->empleado = $empleado;
         $this->formId = $this->empleado->id;
@@ -50,7 +57,7 @@ class Edit extends Component
     {
         $this->cities = City::all();
         $this->positions = Position::all();
-        return view('livewire.admin.personal.edit');
+        return view('livewire.admin.employee.edit');
     }
 
     public function update()

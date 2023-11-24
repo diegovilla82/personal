@@ -29,7 +29,9 @@ class RoleSeeder extends Seeder
         ]);
 
         $user = User::create([
-            'name' => 'dvillarroel',
+            'name' => 'Diego Villarroel',
+            'username' => 'dvillarroel',
+            'dni' => '29440676',
             'email' => 'dvillarroel82@gmail.com',
             'password' => Hash::make('DieVilla'),
         ]);

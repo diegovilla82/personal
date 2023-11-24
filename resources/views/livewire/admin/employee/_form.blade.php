@@ -1,44 +1,12 @@
-<div class="flex">
-    <label class="w-full text-sm px-1">
-        <span class="text-gray-700 dark:text-gray-400">Nombre de usuario</span>
-        <input wire:model="empleado.username"
-            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
-        @error('empleado.username')
-            <span class="text-xs text-red-600 dark:text-red-400">
-                {{ $message }}
-            </span>
-        @enderror
-    </label>
-    <label class="w-full text-sm px-1">
-        <span class="text-gray-700 dark:text-gray-400">Ingreso</span>
-        <input type="number" wire:model="empleado.year_of_income"
-            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
-        @error('empleado.year_of_income')
-            <span class="text-xs text-red-600 dark:text-red-400">
-                {{ $message }}
-            </span>
-        @enderror
-    </label>
-    <label class="w-full text-sm px-1">
-        <span class="text-gray-700 dark:text-gray-400">Días de vacaciones</span>
-        <input type="number" wire:model="empleado.vacation_days"
-            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
-        @error('empleado.vacation_days')
-            <span class="text-xs text-red-600 dark:text-red-400">
-                {{ $message }}
-            </span>
-        @enderror
-    </label>
-</div>
-<hr>
+
 <div class="text-sm font-semibold">Información personal</div>
 <div class="flex space-x-2">
     <label class="w-full text-sm">
         <span class="text-gray-700 dark:text-gray-400">Nombre</span>
-        <input wire:model="empleado.name"
+        <input wire:model="empleado.first_name"
             class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
             placeholder="">
-        @error('empleado.name')
+        @error('empleado.first_name')
             <span class="text-xs text-red-600 dark:text-red-400">
                 {{ $message }}
             </span>
@@ -96,11 +64,25 @@
         <span class="text-gray-700 dark:text-gray-400">Estado civil</span>
         <select wire:model="empleado.state_civil"
             class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
-            <option value=""> Soltero </option>
-            <option value=""> Casado </option>
-            <option value=""> Viudo </option>
+            <option value="Solter"> Soltero </option>
+            <option value="Casado"> Casado </option>
+            <option value="Viudo"> Viudo </option>
         </select>
         @error('empleado.state_civil')
+            <span class="text-xs text-red-600 dark:text-red-400">
+                {{ $message }}
+            </span>
+        @enderror
+    </label>
+</div>
+<hr>
+<div class="flex space-x-2">
+    <label class="w-full text-sm">
+        <span class="text-gray-700 dark:text-gray-400">E-mail</span>
+        <input wire:model="empleado.email"
+            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+            placeholder="">
+        @error('empleado.email')
             <span class="text-xs text-red-600 dark:text-red-400">
                 {{ $message }}
             </span>
@@ -161,6 +143,39 @@
 </div>
 <hr>
 <div class="text-sm font-semibold">Información laboral</div>
+<div class="flex">
+    {{-- <label class="w-full text-sm px-1">
+        <span class="text-gray-700 dark:text-gray-400">Nombre de usuario</span>
+        <input wire:model="empleado.username"
+            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+        @error('empleado.username')
+            <span class="text-xs text-red-600 dark:text-red-400">
+                {{ $message }}
+            </span>
+        @enderror
+    </label> --}}
+    <label class="w-full text-sm px-1">
+        <span class="text-gray-700 dark:text-gray-400">Ingreso</span>
+        <input type="number" wire:model="empleado.year_of_income"
+            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+        @error('empleado.year_of_income')
+            <span class="text-xs text-red-600 dark:text-red-400">
+                {{ $message }}
+            </span>
+        @enderror
+    </label>
+    <label class="w-full text-sm px-1">
+        <span class="text-gray-700 dark:text-gray-400">Días de vacaciones</span>
+        <input type="number" wire:model="empleado.vacation_days"
+            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+        @error('empleado.vacation_days')
+            <span class="text-xs text-red-600 dark:text-red-400">
+                {{ $message }}
+            </span>
+        @enderror
+    </label>
+</div>
+<hr>
 <div class="flex space-x-2">
     <label class="w-full text-sm">
         <span class="text-gray-700 dark:text-gray-400">Situación</span>
@@ -229,8 +244,9 @@
         <label class="w-full text-sm">
             <span class="text-gray-700 dark:text-gray-400">Fecha de Sistema</span>
             <input wire:model="empleado.system_date"
+                type="date"
                 class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                placeholder="">
+                >
             @error('empleado.system_date')
                 <span class="text-xs text-red-600 dark:text-red-400">
                     {{ $message }}
@@ -252,7 +268,7 @@
             <span class="text-gray-700 dark:text-gray-400">ANSES</span>
             <input type="date" wire:model="empleado.anses_date"
                 class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                placeholder="">
+                >
             @error('empleado.anses_date')
                 <span class="text-xs text-red-600 dark:text-red-400">
                     {{ $message }}

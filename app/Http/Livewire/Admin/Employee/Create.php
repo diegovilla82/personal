@@ -1,31 +1,31 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Personal;
+namespace App\Http\Livewire\Admin\Employee;
 
 use App\Models\City;
-use App\Models\Personal;
+use App\Models\Employee;
 use App\Models\Position;
-use App\Models\User;
 use Livewire\Component;
 
 class Create extends Component
 {
-    public User $empleado;
+    public Employee $empleado;
     public $showModal;
     public $showModalEdit;
     public $cities, $positions;
 
     protected $rules = [
-        'empleado.username' => 'required',
+        //'empleado.username' => 'required',
         'empleado.year_of_income' => 'nullable',
         'empleado.vacation_days' => 'nullable',
-
-        'empleado.name' => 'required',
+        'empleado.state_civil' => 'nullable',
+        'empleado.first_name' => 'required',
         'empleado.last_name' => 'required',
         'empleado.dni' => 'required',
         'empleado.birthdate' => 'nullable',
         'empleado.age' => 'nullable',
         'empleado.telephont' => 'nullable',
+        'empleado.email' => 'nullable',
 
         'empleado.city_id' => 'required',
         'empleado.address' => 'nullable',
@@ -44,9 +44,12 @@ class Create extends Component
         'empleado.ley_6039_month' => 'nullable',
         'empleado.ley_6039_day' => 'nullable',
         'empleado.antiquity' => 'nullable',
+        'empleado.apartado' => 'nullable',
+        'empleado.ceic' => 'nullable',
+
     ];
 
-    public function mount(User $empleado)
+    public function mount(Employee $empleado)
     {
         $this->empleado = $empleado;
         $this->showModal = false;
@@ -57,7 +60,7 @@ class Create extends Component
     {
         $this->cities = City::all();
         $this->positions = Position::all();
-        return view('livewire.admin.personal.create');
+        return view('livewire.admin.employee.create');
     }
 
     public function store()
@@ -67,7 +70,7 @@ class Create extends Component
 
         $this->empleado->save();
 
-        $this->mount(new User);
+        $this->mount(new Employee());
 
         $this->showModal = false;
 

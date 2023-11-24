@@ -3,12 +3,12 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\Licencia\Index as IndexLicencia;
-use App\Http\Livewire\Admin\Personal\Index as IndexPersonal;
+use App\Http\Livewire\Admin\Employee\Index as IndexEmployee;
 use App\Http\Livewire\Admin\Role\Index as IndexRole;
 use App\Http\Livewire\Admin\Permission\Index as IndexPermission;
 use App\Http\Livewire\Front\Usuario\CargarLicencia as CargarLicencia;
 use App\Http\Livewire\Front\LicenciaUsuario\Index as IndexLicenciaUsuario;
-
+use App\Http\Livewire\Admin\User\Index as IndexUser;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,20 +26,21 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware('auth')
+Route::middleware(['auth', 'role:super-admin|admin'])
     ->prefix('admin')->group(function () {
     Route::get('/licencias', IndexLicencia::class)->name('licencia.list');
-    Route::get('/empleados', IndexPersonal::class)->name('personal.list');
+    Route::get('/empleados', IndexEmployee::class)->name('employee.list');
     Route::get('/roles', IndexRole::class)->name('role.list');
     Route::get('/permission', IndexPermission::class)->name('permission.list');
+    Route::get('/users', IndexUser::class)->name('users.index.admin');
 });
 
 Route::middleware('auth')
@@ -52,3 +53,4 @@ Route::middleware('auth')
 });
 
 require __DIR__.'/auth.php';
+

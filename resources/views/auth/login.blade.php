@@ -2,6 +2,8 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
+    <x-input-error :messages="session('error')" class="mt-2" />
+    
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
@@ -10,6 +12,11 @@
             <x-input-label for="username" :value="__('Username')" />
             <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('username')" class="mt-2" />
+        </div>
+        <div class="mt-4">
+            <x-input-label for="dni" :value="__('Dni')" />
+            <x-text-input id="dni" class="block mt-1 w-full" type="text" name="dni" :value="old('dni')" required autofocus autocomplete="dni" />
+            <x-input-error :messages="$errors->get('dni')" class="mt-2" />
         </div>
 
         <!-- Password -->

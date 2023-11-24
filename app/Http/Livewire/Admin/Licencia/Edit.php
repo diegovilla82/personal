@@ -35,6 +35,12 @@ class Edit extends Component
 
         $this->licencia->save();
 
+        $this->dispatchBrowserEvent('message', [
+            'title' => 'LICENCIA ACTUALIZADA!',
+            'icon' => 'success',
+            'iconColor' => 'green',
+        ]);
+
         $this->emit('saved');
     }
 }

@@ -83,6 +83,9 @@ return [
                     'username' => 'samaccountname',
                     'email' => 'mail',
                 ],
+                'sync_existing'=> [
+                    'username' => 'samaccountname',
+                ]
             ],
         ],
     ],
