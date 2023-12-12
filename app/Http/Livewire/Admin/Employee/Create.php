@@ -54,6 +54,7 @@ class Create extends Component
         $this->empleado = $empleado;
         $this->showModal = false;
         $this->showModalEdit = false;
+        $this->empleado->state_civil = 'soltero';
     }
 
     public function render()
