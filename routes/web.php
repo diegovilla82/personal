@@ -34,7 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['auth', 'role:super-admin|admin'])
+Route::middleware(['auth', 'role:super-admin'])
     ->prefix('admin')->group(function () {
     Route::get('/licencias', IndexLicencia::class)->name('licencia.list');
     Route::get('/empleados', IndexEmployee::class)->name('employee.list');
