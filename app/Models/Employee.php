@@ -20,20 +20,35 @@ class Employee extends Model
         'telephont',
         'situation',
         'state_civil',
-        'anti_date',
-        'anti_year',
-        'anti_month',
-        'anti_day',
+
+        'year_of_income',
+        //'anti_date',
+
         'system_date',
         'antiquity',
         'nationality',
         'city_of_birth',
         'province_of_birth',
-        'ley_6039_date',
-        'anses_date',
+        //-- antiguedad --
+        'anti_year',
+        'anti_month',
+        'anti_day',
+        //
+        //-- antiguedad --
+        'sys_year',
+        'sys_month',
+        'sys_day',
+        //
+        //'ley_6039_date', -- ley 6039
+        'ley_6039_year',
+        'ley_6039_month',
+        'ley_6039_day',
+        //--
+        //'anses_date', -- anses
         'anses_year',
         'anses_month',
         'anses_day',
+        //---
         'vacation_days',
         'apartado',
         'ceic',

@@ -14,28 +14,76 @@ class PositionSeeder extends Seeder
     public function run(): void
     {
         Position::create([
-            'name' => 'ADMINISTRATIVO I'
+            'name' => 'ADMINISTRATIVO 1'
         ]);
         Position::create([
-            'name' => 'ADMINISTRATIVO II'
+            'name' => 'ADMINISTRATIVO 2'
         ]);
         Position::create([
-            'name' => 'ADMINISTRATIVO III'
+            'name' => 'ADMINISTRATIVO 3'
         ]);
         Position::create([
-            'name' => 'ADMINISTRATIVO IV'
+            'name' => 'ADMINISTRATIVO 4'
         ]);
         Position::create([
-            'name' => 'PROFESIONAL I'
+            'name' => 'ADMINISTRATIVO 5'
         ]);
         Position::create([
-            'name' => 'PROFESIONAL II'
+            'name' => 'ADMINISTRATIVO 6'
         ]);
         Position::create([
-            'name' => 'PROFESIONAL III'
+            'name' => 'ADMINISTRATIVO 7'
         ]);
         Position::create([
-            'name' => 'PROFESIONAL IV'
+            'name' => 'ADMINISTRATIVO 8'
+        ]);
+        Position::create([
+            'name' => 'ADMINISTRATIVO 9'
+        ]);
+        Position::create([
+            'name' => 'ADMINISTRATIVO 10'
+        ]);
+        Position::create([
+            'name' => 'ADMINISTRATIVO 11'
+        ]);
+        Position::create([
+            'name' => 'SERVICIOS'
+        ]);
+        Position::create([
+            'name' => 'MAESTRANZA'
+        ]);
+        Position::create([
+            'name' => 'PROFESIONAL 1'
+        ]);
+        Position::create([
+            'name' => 'PROFESIONAL 2'
+        ]);
+        Position::create([
+            'name' => 'PROFESIONAL 3'
+        ]);
+        Position::create([
+            'name' => 'PROFESIONAL 4'
+        ]);
+        Position::create([
+            'name' => 'PROFESIONAL 5'
+        ]);
+        Position::create([
+            'name' => 'PROFESIONAL 6'
+        ]);
+        Position::create([
+            'name' => 'PROFESIONAL 7'
+        ]);
+        Position::create([
+            'name' => 'PROFESIONAL 8'
+        ]);
+        Position::create([
+            'name' => 'PROFESIONAL 9'
+        ]);
+        Position::create([
+            'name' => 'PROFESIONAL 10'
+        ]);
+        Position::create([
+            'name' => 'PROFESIONAL 11'
         ]);
     }
 }

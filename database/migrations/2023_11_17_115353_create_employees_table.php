@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             //-- datos personales
-            $table->year('year_of_income')->nullable();
+            $table->date('year_of_income')->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('full_name')->nullable();
@@ -25,20 +25,27 @@ return new class extends Migration
             $table->string('dni')->nullable();
             $table->integer('age')->nullable();
             $table->string('telephont')->nullable();
-            $table->enum('situation', ['Activo', 'No Activo'])->nullable();
+            $table->enum('situation', ['Planta permanente', 'Contratado'])->nullable();
             $table->enum('state_civil', ['Soltero', 'Casado', 'Viudo'])->default($value='Soltero');
-            //--licencia
-            //-- Antiguedad
-            $table->date('anti_date')->nullable();
-            $table->year('anti_year')->nullable();
-            $table->integer('anti_month')->nullable();
-            $table->integer('anti_day')->nullable();
-            $table->date('system_date')->nullable();
-            $table->integer('antiquity')->nullable();
+
+
 
             $table->string('nationality')->nullable();
             $table->string('city_of_birth')->nullable();
             $table->string('province of birth')->nullable();
+
+            //-- antiguedad
+            $table->integer('antiquity')->nullable();
+            //-- Antiguedad, calculable a partir de sistema, ley 6039 y anses
+            $table->date('anti_date')->nullable();
+            $table->year('anti_year')->nullable();
+            $table->integer('anti_month')->nullable();
+            $table->integer('anti_day')->nullable();
+            //-- Antiguedad sistema
+            $table->date('system_date')->nullable();
+            $table->year('sys_year')->nullable();
+            $table->integer('sys_month')->nullable();
+            $table->integer('sys_day')->nullable();
             //-- Por ley 6039
             $table->date('ley_6039_date')->nullable();
             $table->year('ley_6039_year')->nullable();
@@ -49,6 +56,7 @@ return new class extends Migration
             $table->year('anses_year')->nullable();
             $table->integer('anses_month')->nullable();
             $table->integer('anses_day')->nullable();
+
             //-- días de vacaciones
             $table->integer('vacation_days')->nullable();
 

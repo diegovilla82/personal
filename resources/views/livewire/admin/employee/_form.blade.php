@@ -1,4 +1,3 @@
-
 <div class="text-sm font-semibold">Información personal</div>
 <div class="flex space-x-2">
     <label class="w-full text-sm">
@@ -40,14 +39,14 @@
 
     <label class="w-full text-sm">
         <span class="text-gray-700 dark:text-gray-400">Fecha de Nacimiento</span>
-            <input type="date" wire:model="empleado.birthdate"
-                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                placeholder="">
-            @error('empleado.birthdate')
-                <span class="text-xs text-red-600 dark:text-red-400">
-                    {{ $message }}
-                </span>
-            @enderror
+        <input type="date" wire:model="empleado.birthdate"
+            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+            placeholder="">
+        @error('empleado.birthdate')
+            <span class="text-xs text-red-600 dark:text-red-400">
+                {{ $message }}
+            </span>
+        @enderror
     </label>
     <label class="w-full text-sm">
         <span class="text-gray-700 dark:text-gray-400">Edad</span>
@@ -156,7 +155,7 @@
     </label> --}}
     <label class="w-full text-sm px-1">
         <span class="text-gray-700 dark:text-gray-400">Ingreso</span>
-        <input type="number" wire:model="empleado.year_of_income"
+        <input type="date" wire:model="empleado.year_of_income"
             class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
         @error('empleado.year_of_income')
             <span class="text-xs text-red-600 dark:text-red-400">
@@ -229,52 +228,139 @@
 </div>
 <hr>
 <div class="text-sm font-semibold">Antiguedad Bonificable</div>
+<div class="flex w-full">
+    <label class="w-full text-sm flex flex-col">
+
+        <span class="text-gray-700 dark:text-gray-400">Antiguedad</span>
+        <div class="flex space-x-1">
+            <div>
+                <input type="text" wire:model="empleado.anti_day"
+                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+                @error('empleado.anti_day')
+                    <span class="text-xs text-red-600 dark:text-red-400">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </div>
+            <div>
+                <input type="number" wire:model="empleado.anti_month"
+                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+                @error('empleado.anti_month')
+                    <span class="text-xs text-red-600 dark:text-red-400">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </div>
+            <div>
+                <input type="number" wire:model="empleado.anti_year"
+                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+                @error('empleado.anti_year')
+                    <span class="text-xs text-red-600 dark:text-red-400">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </div>
+        </div>
+
+    </label>
+</div>
 <div class="flex w-full space-x-8">
-        <label class="w-full text-sm">
-            <span class="text-gray-700 dark:text-gray-400">Antiguedad</span>
-            <input type="date" wire:model="empleado.anti_date"
-                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                placeholder="">
-            @error('empleado.anti_date')
-                <span class="text-xs text-red-600 dark:text-red-400">
-                    {{ $message }}
-                </span>
-            @enderror
-        </label>
-        <label class="w-full text-sm">
-            <span class="text-gray-700 dark:text-gray-400">Fecha de Sistema</span>
-            <input wire:model="empleado.system_date"
-                type="date"
-                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                >
-            @error('empleado.system_date')
-                <span class="text-xs text-red-600 dark:text-red-400">
-                    {{ $message }}
-                </span>
-            @enderror
-        </label>
-        <label class="w-full text-sm">
-            <span class="text-gray-700 dark:text-gray-400">Ley 6039</span>
-            <input type="date" wire:model="empleado.ley_6039_date"
-                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                placeholder="">
-            @error('empleado.ley_6039_year')
-                <span class="text-xs text-red-600 dark:text-red-400">
-                    {{ $message }}
-                </span>
-            @enderror
-        </label>
-        <label class="w-full text-sm">
-            <span class="text-gray-700 dark:text-gray-400">ANSES</span>
-            <input type="date" wire:model="empleado.anses_date"
-                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                >
-            @error('empleado.anses_date')
-                <span class="text-xs text-red-600 dark:text-red-400">
-                    {{ $message }}
-                </span>
-            @enderror
-        </label>
+
+    <label class="w-full text-sm">
+        <span class="text-gray-700 dark:text-gray-400">Fecha de Sistema</span>
+        <div class="flex space-x-1">
+            <div>
+                <input type="text" wire:model="empleado.sys_day"
+                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+                @error('empleado.sys_day')
+                    <span class="text-xs text-red-600 dark:text-red-400">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </div>
+            <div>
+                <input type="text" wire:model="empleado.sys_month"
+                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+                @error('empleado.sys_month')
+                    <span class="text-xs text-red-600 dark:text-red-400">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </div>
+            <div>
+                <input type="text" wire:model="empleado.sys_year"
+                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+                @error('empleado.sys_year')
+                    <span class="text-xs text-red-600 dark:text-red-400">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </div>
+        </div>
+    </label>
+    <label class="w-full text-sm">
+        <span class="text-gray-700 dark:text-gray-400">Ley 6039</span>
+        <div class="flex space-x-1">
+            <div>
+                <input type="text" wire:model="empleado.ley_6039_day"
+                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+                @error('empleado.ley_6039_day')
+                    <span class="text-xs text-red-600 dark:text-red-400">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </div>
+            <div>
+                <input type="text" wire:model="empleado.ley_6039_month"
+                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+                @error('empleado.ley_6039_month')
+                    <span class="text-xs text-red-600 dark:text-red-400">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </div>
+            <div>
+                <input type="text" wire:model="empleado.ley_6039_year"
+                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+                @error('empleado.ley_6039_year')
+                    <span class="text-xs text-red-600 dark:text-red-400">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </div>
+        </div>
+    </label>
+    <label class="w-full text-sm">
+        <span class="text-gray-700 dark:text-gray-400">ANSES</span>
+        <div class="flex space-x-1">
+            <div>
+                <input type="text" wire:model="empleado.anses_day"
+                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+                @error('empleado.anses_day')
+                    <span class="text-xs text-red-600 dark:text-red-400">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </div>
+            <div>
+                <input type="text" wire:model="empleado.anses_month"
+                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+                @error('empleado.anses_month')
+                    <span class="text-xs text-red-600 dark:text-red-400">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </div>
+            <div>
+                <input type="text" wire:model="empleado.anses_year"
+                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+                @error('empleado.anses_year')
+                    <span class="text-xs text-red-600 dark:text-red-400">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </div>
+        </div>
+    </label>
 
 </div>
-
